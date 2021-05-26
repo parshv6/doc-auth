@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react'
 import { Form,Card, Button, Alert} from "react-bootstrap"
-import { useAuth } from "../contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import   CenterContainer  from './CenterContainer'
 
 
 
@@ -34,7 +35,7 @@ import { Link, useHistory } from "react-router-dom"
          }
 
          Promise.all(promises).then(() => {
-             history.push('/')
+             history.push('/user')
          }).catch(() => {
              setError("Failed to update acount")
          }).finally(() =>{
@@ -44,7 +45,7 @@ import { Link, useHistory } from "react-router-dom"
 
 
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>
@@ -67,9 +68,9 @@ import { Link, useHistory } from "react-router-dom"
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-               <Link to="/">Cancel</Link>
+               <Link to="/user">Cancel</Link>
             </div>
-        </>
+        </CenterContainer>
         
     )
 }
